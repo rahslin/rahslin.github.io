@@ -363,17 +363,14 @@
       display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 1.5rem;
     }
+
+    /* Card is now a plain div — not clickable itself */
     .project-card {
       background: var(--surface); border: 1px solid var(--border);
       border-radius: 6px; overflow: hidden;
       display: flex; flex-direction: column;
       transition: border-color 0.2s, transform 0.2s;
-      text-decoration: none; color: inherit;
       cursor: default;
-    }
-    .project-card-link-wrap {
-      display: flex; flex-direction: column; flex: 1;
-      text-decoration: none; color: inherit; cursor: pointer;
     }
     .project-card:hover { border-color: var(--pink); transform: translateY(-4px); }
     .project-card-top {
@@ -406,10 +403,14 @@
       background: rgba(247,37,133,0.08); border: 1px solid var(--pink-dim);
       color: var(--pink); letter-spacing: 0.04em;
     }
+
+    /* The ↗ arrow is now a real link */
     .project-link-arrow {
       font-size: 1rem; color: var(--muted); transition: all 0.2s;
+      text-decoration: none; cursor: pointer;
     }
-    .project-card:hover .project-link-arrow { color: var(--pink); transform: translate(3px,-3px); }
+    .project-link-arrow:hover { color: var(--pink); transform: translate(3px,-3px); }
+    .project-card:hover .project-link-arrow { color: var(--pink); }
 
     /* ── FOOTER ── */
     footer { padding: 1.8rem 0; border-top: 1px solid var(--border); position: relative; z-index: 1; }
@@ -731,6 +732,7 @@
            • data-img="https://..."   → PNG/image URL — opens in new tab on click
            • data-yt="VIDEOID"        → YouTube video ID (e.g. "dQw4w9WgXcQ")
                                         → shows a play button that opens modal
+           • data-gh="https://..."    → GitHub URL for the ↗ arrow link
            Leave either attribute blank ("") to hide that button.
       ──────────────────────────────────────────────────────────────────── -->
       <div class="projects-grid reveal">
@@ -738,105 +740,100 @@
         <!-- CARD 1 — ADMIN WEATHER SYSTEM -->
         <div class="project-card"
              data-img="https://media.discordapp.net/attachments/1319000078169673759/1478799587308339230/image.png?ex=69a9b6f0&is=69a86570&hm=6cffcecc294cfe7d9101e46bb15a0d937dad0b463097546ddbb49af2e30c751c&=&format=webp&quality=lossless&width=1436&height=822"
-             data-yt="6G58gF5RiKw">
-          <a href="https://github.com/rahslin/project-one" target="_blank" class="project-card-link-wrap">
-            <div class="project-card-top">
-              <div class="project-card-dots"><span class="pd pd1"></span><span class="pd pd2"></span><span class="pd pd3"></span></div>
-              <span class="project-card-lang">Luau</span>
-            </div>
-            <div class="project-card-body">
-              <div class="project-card-name">ADMIN WEATHER SYSTEM</div>
-              <div class="project-card-desc">Weather system used by the BIGGEST USM GROUP ON ROBLOX (USM 1940s/WW2 Military Roleplay) Supports multiple players without lagging.</div>
-            </div>
-            <div class="project-card-footer">
-              <div class="project-tags"><span class="project-tag">Backend</span><span class="project-tag">GENERAL Systems</span></div>
-              <span class="project-link-arrow">↗</span>
-            </div>
-          </a>
+             data-yt="6G58gF5RiKw"
+             data-gh="https://github.com/rahslin/project-one">
+          <div class="project-card-top">
+            <div class="project-card-dots"><span class="pd pd1"></span><span class="pd pd2"></span><span class="pd pd3"></span></div>
+            <span class="project-card-lang">Luau</span>
+          </div>
+          <div class="project-card-body">
+            <div class="project-card-name">ADMIN WEATHER SYSTEM</div>
+            <div class="project-card-desc">Weather system used by the BIGGEST USM GROUP ON ROBLOX (USM 1940s/WW2 Military Roleplay) Supports multiple players without lagging.</div>
+          </div>
+          <div class="project-card-footer">
+            <div class="project-tags"><span class="project-tag">Backend</span><span class="project-tag">GENERAL Systems</span></div>
+            <a class="project-link-arrow" target="_blank" rel="noopener noreferrer">↗</a>
+          </div>
         </div>
 
         <!-- CARD 2 — TOOL PLACEMENT SYSTEM -->
         <div class="project-card"
              data-img="https://media.discordapp.net/attachments/1319000078169673759/1478793195398893589/Screenshot_2026-02-10_164503.png?ex=69a9b0fc&is=69a85f7c&hm=63beabb77e49281c36fe778636b0944252c227c6152bfb3eb3c6950e28731764&=&format=webp&quality=lossless&width=1449&height=642"
-             data-yt="zHXHVX96nbs">
-          <a href="https://github.com/rahslin/project-two" target="_blank" class="project-card-link-wrap">
-            <div class="project-card-top">
-              <div class="project-card-dots"><span class="pd pd1"></span><span class="pd pd2"></span><span class="pd pd3"></span></div>
-              <span class="project-card-lang">Luau</span>
-            </div>
-            <div class="project-card-body">
-              <div class="project-card-name">TOOL PLACEMENT SYSTEM</div>
-              <div class="project-card-desc">In-game interface for law enforcement or DOT roleplay — Includes compact UI and easy rotation placement.</div>
-            </div>
-            <div class="project-card-footer">
-              <div class="project-tags"><span class="project-tag">UI</span><span class="project-tag">FR/CIV Systems</span></div>
-              <span class="project-link-arrow">↗</span>
-            </div>
-          </a>
+             data-yt="zHXHVX96nbs"
+             data-gh="https://github.com/rahslin/project-two">
+          <div class="project-card-top">
+            <div class="project-card-dots"><span class="pd pd1"></span><span class="pd pd2"></span><span class="pd pd3"></span></div>
+            <span class="project-card-lang">Luau</span>
+          </div>
+          <div class="project-card-body">
+            <div class="project-card-name">TOOL PLACEMENT SYSTEM</div>
+            <div class="project-card-desc">In-game interface for law enforcement or DOT roleplay — Includes compact UI and easy rotation placement.</div>
+          </div>
+          <div class="project-card-footer">
+            <div class="project-tags"><span class="project-tag">UI</span><span class="project-tag">FR/CIV Systems</span></div>
+            <a class="project-link-arrow" target="_blank" rel="noopener noreferrer">↗</a>
+          </div>
         </div>
 
         <!-- CARD 3 — R6 LOCKER SYSTEM -->
         <div class="project-card"
              data-img="https://media.discordapp.net/attachments/1319000078169673759/1478793675096981655/Screenshot_2026-01-28_181729.png?ex=69a9b16e&is=69a85fee&hm=e538dac33b102ed59f26787a94c1619aa8370b5ab0a6102d315859db4cd676ef&=&format=webp&quality=lossless&width=640&height=542"
-             data-yt="">
-          <a href="https://github.com/rahslin/project-three" target="_blank" class="project-card-link-wrap">
-            <div class="project-card-top">
-              <div class="project-card-dots"><span class="pd pd1"></span><span class="pd pd2"></span><span class="pd pd3"></span></div>
-              <span class="project-card-lang">Luau</span>
-            </div>
-            <div class="project-card-body">
-              <div class="project-card-name">R6 LOCKER SYSTEM</div>
-              <div class="project-card-desc">Custom R6 locker system framework with automatic equip and unequip, anti-exploit sanity checks, and server-authoritative registration.</div>
-            </div>
-            <div class="project-card-footer">
-              <div class="project-tags"><span class="project-tag">Equipment</span><span class="project-tag">Security</span></div>
-              <span class="project-link-arrow">↗</span>
-            </div>
-          </a>
+             data-yt=""
+             data-gh="https://github.com/rahslin/project-three">
+          <div class="project-card-top">
+            <div class="project-card-dots"><span class="pd pd1"></span><span class="pd pd2"></span><span class="pd pd3"></span></div>
+            <span class="project-card-lang">Luau</span>
+          </div>
+          <div class="project-card-body">
+            <div class="project-card-name">R6 LOCKER SYSTEM</div>
+            <div class="project-card-desc">Custom R6 locker system framework with automatic equip and unequip, anti-exploit sanity checks, and server-authoritative registration.</div>
+          </div>
+          <div class="project-card-footer">
+            <div class="project-tags"><span class="project-tag">Equipment</span><span class="project-tag">Security</span></div>
+            <a class="project-link-arrow" target="_blank" rel="noopener noreferrer">↗</a>
+          </div>
         </div>
 
         <!-- CARD 4 — ADMIN SYSTEM -->
         <div class="project-card"
              data-img="https://media.discordapp.net/attachments/1414957411453894656/1461515868218462323/image.png?ex=69a97578&is=69a823f8&hm=ce5ea2195aecbdfae397b205628e777d73583860e91b32b435f8c0cacfce89d5&=&format=webp&quality=lossless&width=523&height=651"
-             data-yt="">
-          <a href="https://github.com/rahslin/project-four" target="_blank" class="project-card-link-wrap">
-            <div class="project-card-top">
-              <div class="project-card-dots"><span class="pd pd1"></span><span class="pd pd2"></span><span class="pd pd3"></span></div>
-              <span class="project-card-lang">Luau</span>
-            </div>
-            <div class="project-card-body">
-              <div class="project-card-name">ADMIN SYSTEM</div>
-              <div class="project-card-desc">Tiered admin panel with permission levels, moderation logs, ban/kick/mute commands, and Discord webhook integration for audit trails.</div>
-            </div>
-            <div class="project-card-footer">
-              <div class="project-tags"><span class="project-tag">Backend</span><span class="project-tag">Webhooks</span></div>
-              <span class="project-link-arrow">↗</span>
-            </div>
-          </a>
+             data-yt=""
+             data-gh="https://github.com/rahslin/project-four">
+          <div class="project-card-top">
+            <div class="project-card-dots"><span class="pd pd1"></span><span class="pd pd2"></span><span class="pd pd3"></span></div>
+            <span class="project-card-lang">Luau</span>
+          </div>
+          <div class="project-card-body">
+            <div class="project-card-name">ADMIN SYSTEM</div>
+            <div class="project-card-desc">Tiered admin panel with permission levels, moderation logs, ban/kick/mute commands, and Discord webhook integration for audit trails.</div>
+          </div>
+          <div class="project-card-footer">
+            <div class="project-tags"><span class="project-tag">Backend</span><span class="project-tag">Webhooks</span></div>
+            <a class="project-link-arrow" target="_blank" rel="noopener noreferrer">↗</a>
+          </div>
         </div>
 
-        <!-- CARD 5 — CHAT DEPENDABLE QUENE SYSTEM -->
+        <!-- CARD 5 — MATCHMAKING SYSTEM -->
         <div class="project-card"
              data-img="https://media.discordapp.net/attachments/1319000078169673759/1478804493431996457/eb7ade0b-b280-46d6-868e-bf7d6b664fc6.png?ex=69a9bb82&is=69a86a02&hm=cd0001aacb47642e3c2b0776901b980bd0560660c59f874e582bab80412a9500&=&format=webp&quality=lossless&width=1153&height=606"
-             data-yt="">
-          <a href="https://github.com/rahslin/project-five" target="_blank" class="project-card-link-wrap">
-            <div class="project-card-top">
-              <div class="project-card-dots"><span class="pd pd1"></span><span class="pd pd2"></span><span class="pd pd3"></span></div>
-              <span class="project-card-lang">Luau</span>
-            </div>
-            <div class="project-card-body">
-              <div class="project-card-name">MATCHMAKING SYSTEM</div>
-              <div class="project-card-desc">Queue-based matchmaking with skill-based pairing, team balancing, and lobby management. Handles disconnects and graceful re-queuing.</div>
-            </div>
-            <div class="project-card-footer">
-              <div class="project-tags"><span class="project-tag">Gameplay</span><span class="project-tag">Multiplayer</span></div>
-              <span class="project-link-arrow">↗</span>
-            </div>
-          </a>
+             data-yt=""
+             data-gh="https://github.com/rahslin/project-five">
+          <div class="project-card-top">
+            <div class="project-card-dots"><span class="pd pd1"></span><span class="pd pd2"></span><span class="pd pd3"></span></div>
+            <span class="project-card-lang">Luau</span>
+          </div>
+          <div class="project-card-body">
+            <div class="project-card-name">MATCHMAKING SYSTEM</div>
+            <div class="project-card-desc">Queue-based matchmaking with skill-based pairing, team balancing, and lobby management. Handles disconnects and graceful re-queuing.</div>
+          </div>
+          <div class="project-card-footer">
+            <div class="project-tags"><span class="project-tag">Gameplay</span><span class="project-tag">Multiplayer</span></div>
+            <a class="project-link-arrow" target="_blank" rel="noopener noreferrer">↗</a>
+          </div>
         </div>
 
         <!-- CARD 6 — VIEW ALL -->
-        <a href="https://github.com/rahslin" class="project-card" target="_blank" style="border-style: dashed;">
+        <a href="https://github.com/rahslin" class="project-card" target="_blank" style="border-style: dashed; cursor: pointer;">
           <div class="project-card-body" style="align-items:center; justify-content:center; text-align:center; padding: 3rem 1.5rem;">
             <div style="font-size:2rem; margin-bottom:0.75rem;">⌥</div>
             <div class="project-card-name" style="font-size:1rem;">VIEW ALL ON GITHUB</div>
@@ -927,14 +924,19 @@
         window.scrollY > 10 ? '0 2px 30px rgba(0,0,0,0.5)' : 'none';
     });
 
-    // ── Project card media buttons
-    // For each .project-card with data-img or data-yt, inject media buttons
-    document.querySelectorAll('.project-card[data-img], .project-card[data-yt]').forEach(card => {
+    // ── Project card: wire up ↗ arrow href from data-gh, inject media buttons
+    document.querySelectorAll('.project-card[data-gh]').forEach(card => {
+      const gh  = card.getAttribute('data-gh');
       const img = card.getAttribute('data-img');
       const yt  = card.getAttribute('data-yt');
       const name = card.querySelector('.project-card-name')?.textContent || 'PROJECT';
 
-      if (!img && !yt) return;
+      // Wire the ↗ arrow to the GitHub URL
+      const arrow = card.querySelector('.project-link-arrow');
+      if (arrow && gh) arrow.href = gh;
+
+      // Build media button bar
+      if ((!img || img.trim() === '') && (!yt || yt.trim() === '')) return;
 
       const bar = document.createElement('div');
       bar.className = 'project-media-bar';
@@ -963,36 +965,21 @@
             <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1C4.5 20.5 12 20.5 12 20.5s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/>
           </svg>
           Watch Video`;
-        ytBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          openModal(yt, name);
-        });
+        ytBtn.addEventListener('click', () => openModal(yt, name));
         bar.appendChild(ytBtn);
       }
 
       // Insert bar above the footer
       const footer = card.querySelector('.project-card-footer');
-      if (footer) {
-        card.querySelector('.project-card-link-wrap').insertBefore(bar, footer);
-      } else {
-        card.appendChild(bar);
-      }
-    });
-
-    // Make project-card-link-wrap behave correctly
-    document.querySelectorAll('.project-card-link-wrap').forEach(wrap => {
-      wrap.style.textDecoration = 'none';
-      wrap.style.color = 'inherit';
-      wrap.style.display = 'flex';
-      wrap.style.flexDirection = 'column';
-      wrap.style.flex = '1';
+      if (footer) card.insertBefore(bar, footer);
+      else card.appendChild(bar);
     });
 
     // ── Modal logic
-    const modal    = document.getElementById('videoModal');
-    const iframe   = document.getElementById('modalIframe');
+    const modal     = document.getElementById('videoModal');
+    const iframe    = document.getElementById('modalIframe');
     const modalTitle = document.getElementById('modalTitle');
-    const closeBtn = document.getElementById('modalClose');
+    const closeBtn  = document.getElementById('modalClose');
 
     function openModal(ytId, title) {
       iframe.src = `https://www.youtube.com/embed/${ytId}?autoplay=1`;
